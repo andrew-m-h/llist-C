@@ -20,7 +20,7 @@ My solution, is to devise a framework around the little used X-Macro functionali
 To start with, I have allowed for most of the inbuilt data types to be utilised as part of a linked list. There are a range of functions that all come in various flavours mapping to each type they act upon.
 
 ##### e.g. linked list of long long
-The following program prints out the first 10 primes, reverses the list and then sums them. It can be seen that the suffix, \_ll is ubiquitous, if only using one major data type, it would be good practise to ```#define print print\_ll```.
+The following program prints out the first 10 primes, reverses the list and then sums them. It can be seen that the suffix, \_ll is ubiquitous, if only using one major data type, it would be good practise to ```#define print print_ll```.
 ```c
 #include <stdio.h>
 #include "llist.h"
@@ -45,8 +45,8 @@ As alluded to previously, the power of this framework comes from the ability for
 
 ##### person.h
 ```c
-#ifndef PERSON\_H
-#define PERSON\_H
+#ifndef PERSON_H
+#define PERSON_H
 
 typedef struct person {
 	unsigned int age;
@@ -59,28 +59,28 @@ typedef struct person {
 */
 #endif
 ```
-##### llist\_usertype.def
+##### llist_usertype.def
 This is a special file, where a user can specify the type to turn into a linked list.
 ```c
 #include "person.h"
 #include <stdio.h>
 
-#ifdef LLIST\_MACRO
+#ifdef LLIST_MACRO
 /*
 the first macro argument is its suffix
 the second is the type to turn into a linked list
 */
-LLIST\_MACRO(_p, person_t)
+LLIST_MACRO(_p, person_t)
 #endif
 
 /*
 macro is called when trying to print a person.
 if an object is 'unprintable', then leave this declaration and no print functions will be generated.
 */
-#ifdef LLIST\_PRINT
-#define PRINT\_PERSON(p, file) fprintf(file, "Name: %s\nAge: %ud\nHeight: %ud\n")
-LLIST\_PRINT(_p, PRINT\_PERSON, person_t)
-#undef PRINT\_PERSON
+#ifdef LLIST_PRINT
+#define PRINT_PERSON(p, file) fprintf(file, "Name: %s\nAge: %ud\nHeight: %ud\n")
+LLIST_PRINT(_p, PRINT_PERSON, person_t)
+#undef PRINT_PERSON
 #endif
 ```
 
