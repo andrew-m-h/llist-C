@@ -78,7 +78,7 @@ macro is called when trying to print a person.
 if an object is 'unprintable', then leave this declaration and no print functions will be generated.
 */
 #ifdef LLIST_PRINT
-#define PRINT_PERSON(p, file) fprintf(file, "Name: %s\nAge: %ud\nHeight: %ud\n", p.name, p.age, p.height)
+#define PRINT_PERSON(p, file) fprintf(file, "Name: %s\nAge: %du\nHeight: %du\n", p.name, p.age, p.height)
 LLIST_PRINT(_p, PRINT_PERSON, person_t)
 #undef PRINT_PERSON
 #endif
