@@ -1,0 +1,70 @@
+#if __has_include ("llist_usertype.def")
+#include "llist_usertype.def"
+#endif
+
+#ifdef LLIST_MACRO
+LLIST_MACRO(_v, void*)
+LLIST_MACRO(_ll, long long)
+LLIST_MACRO(_ull, unsigned long long)
+LLIST_MACRO(_i, int)
+LLIST_MACRO(_ui, unsigned int)
+LLIST_MACRO(_f, float)
+LLIST_MACRO(_d, double)
+LLIST_MACRO(_c, char)
+LLIST_MACRO(_uc, char)
+LLIST_MACRO(_s, char*)
+#endif
+
+#ifdef LLIST_PRINT
+
+#define PRINT_LL(x, file) fprintf(file, "%lld", x)
+LLIST_PRINT(_ll, PRINT_LL, long long)
+#undef PRINT_LL
+
+#define PRINT_ULL(x, file) fprintf(file, "%llu", x)
+LLIST_PRINT(_ull, PRINT_ULL, unsigned long long)
+#undef PRINT_ULL
+
+#define PRINT_I(x, file) fprintf(file, "%d", x)
+LLIST_PRINT(_i, PRINT_I, int)
+#undef PRINT_I
+
+#define PRINT_UI(x, file) fprintf(file, "%du", x)
+LLIST_PRINT(_ui, PRINT_UI, unsigned int)
+#undef PRINT_UI
+
+#define PRINT_F(x, file) fprintf(file, "%f", x)
+LLIST_PRINT(_f, PRINT_F, float)
+#undef PRINT_F
+
+#define PRINT_D(x, file) fprintf(file, "%g", x)
+LLIST_PRINT(_d, PRINT_D, double)
+#undef PRINT_D
+
+#define PRINT_C(x, file) fprintf(file, "%c", x)
+LLIST_PRINT(_c, PRINT_C, char)
+#undef PRINT_C
+
+#define PRINT_UC(x, file) fprintf(file, "%uc", x)
+LLIST_PRINT(_uc, PRINT_UC, unsigned char)
+#undef PRINT_UC
+
+#define PRINT_S(x, file) fprintf(file, "%s", x)
+LLIST_PRINT(_s, PRINT_S, char*)
+#undef PRINT_S
+
+#endif
+
+#ifdef LLIST_NUMERICAL
+LLIST_NUMERICAL(_ll, long long)
+LLIST_NUMERICAL(_ull, unsigned long long)
+LLIST_NUMERICAL(_i, int)
+LLIST_NUMERICAL(_ui, unsigned int)
+LLIST_NUMERICAL(_f, float)
+LLIST_NUMERICAL(_d, double)
+LLIST_NUMERICAL(_c, char)
+LLIST_NUMERICAL(_uc, char)
+#endif
+
+
+

@@ -1,0 +1,41 @@
+/*Example contents:
+custom.h defines a type:
+typedef struct custom {
+	char c;
+	int i;
+} custom_t;
+
+LLIST_MACRO must be called with a unique 'suffix', usually _typename, and the type to be built.
+
+LLIST_PRINT must be called with a the suffix, PRINT macro and typename.
+the PRINT macro is called when printing the object. It takes the object, and a FILE*
+
+taken suffixes:
+_i	int
+_ll	long long
+_ull	unsigned long long
+_f	float
+_d	double
+_c	char
+_uc	unsigned char
+_s	char*
+_v	void*
+*/
+
+#include "custom.h" /*import the type*/
+
+/*MUST place LIST_MACRO in guards*/
+#ifdef LLIST_MACRO
+/*_custom is a unique suffix, custom_t is the typename*/
+LLIST_MACRO(_custom, custom_t) 
+#endif
+
+/*MUST place LLIST_PRINT in guards*/
+#ifdef LLIST_PRINT
+
+/*PRINT will print the type to the FILE* file*/
+#define PRINT_CUSTOM(x, file) fprintf(file, "{%c, %d}", x.c, x.i)
+LLIST_PRINT(_custom, PRINT_CUSTOM, custom_t)
+#undef PRINT_CUSTOM 
+
+#endif
