@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 #include "llist.h"
-
+#if 0
 #include "custom.h"
 
 #define print print_i
@@ -40,5 +40,19 @@ int main(){
 
 	free_llist_custom(clist);
 	free_llist_custom(rev_c);
+	return 0;
+}
+#endif
+static long long add(long long a, long long b){return a + b;}
+int main(){
+	signed long long nums[10] = {2,5,7,11,13,17,19,23,29,31}; /*first 10 primes*/
+	signed long long sum;
+	llist_ll_t* list = new_llist_ll(nums, 10);
+	print_ll(list);
+	list = reverse_ll(list);
+	print_ll(list);
+	sum = foldl_ll(1, list, add);
+	printf("the sum of the first 10 primes is: %lld\n", sum);
+	free_llist_ll(list);
 	return 0;
 }

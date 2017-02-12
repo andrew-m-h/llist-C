@@ -42,7 +42,7 @@ LLIST_PRINT(_d, PRINT_D, double)
 #undef PRINT_D
 
 #define PRINT_C(x, file) fprintf(file, "%c", x)
-LLIST_PRINT(_c, PRINT_C, char)
+LLIST_PRINT(_c, PRINT_C, signed char)
 #undef PRINT_C
 
 #define PRINT_UC(x, file) fprintf(file, "%uc", x)
