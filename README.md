@@ -78,10 +78,10 @@ macro is called when trying to print a person.
 if an object is 'unprintable', then leave this declaration and no print functions will be generated.
 */
 #ifdef LLIST_PRINT
-#define PRINT_PERSON(p, file) fprintf(file, "Name: %s\nAge: %ud\nHeight: %ud\n")
+#define PRINT_PERSON(p, file) fprintf(file, "Name: %s\nAge: %ud\nHeight: %ud\n", p.name, p.age, p.height)
 LLIST_PRINT(_p, PRINT_PERSON, person_t)
 #undef PRINT_PERSON
 #endif
 ```
 
-And that is it. You can now use print_p, foldl_p, reverse_p, ... and directly operate on your person_t at will.
+And that is it. You can now use print\_p, foldl\_p, reverse\_p, ... and directly operate on your person\_t at will.
