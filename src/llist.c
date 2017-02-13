@@ -159,3 +159,25 @@
 	}
 #include "llist.def"
 #undef LLIST_NUMERICAL
+
+#define LLIST_NUMERICAL(suffix, type) \
+	static type max ## suffix(type a, type b){ return a > b ? a : b; } \
+	type maximum ## suffix(llist ## suffix ## _t* list){ \
+		return foldl ## suffix(list->data, list, max ## suffix);\
+	}
+#include "llist.def"
+#undef LLIST_NUMERICAL
+
+#define LLIST_EQ(suffix, eq, type) \
+	int elem ## suffix(llist ## suffix ## _t* list, type n){ \
+		llist ## suffix ## _t* tmp = list; \
+		while(tmp){ \
+			if (eq(tmp->data,  n)){ \
+				return 1; \
+			} \
+		} \
+		return 0; \
+	}
+#include "llist.def"
+#undef LLIST_EQ
+

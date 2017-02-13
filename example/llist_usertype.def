@@ -38,4 +38,9 @@ LLIST_MACRO(_custom, custom_t)
 LLIST_PRINT(_custom, PRINT_CUSTOM, custom_t)
 #undef PRINT_CUSTOM 
 
+#ifdef LLIST_EQ
+#define EQ(a,b) (((a).c - (b).c) && ((a).i - (b).i))
+LLIST_EQ(_custom, EQ, custom_t)
+#endif
+
 #endif

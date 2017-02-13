@@ -15,6 +15,7 @@ LLIST_MACRO(_uc, char)
 LLIST_MACRO(_s, char*)
 #endif
 
+
 #ifdef LLIST_PRINT
 
 #define PRINT_LL(x, file) fprintf(file, "%lld", x)
@@ -66,5 +67,16 @@ LLIST_NUMERICAL(_c, char)
 LLIST_NUMERICAL(_uc, char)
 #endif
 
-
-
+#ifdef LLIST_EQ
+#define EQ(a, b) ((a) - (b))
+LLIST_EQ(_ll, EQ, long long)
+LLIST_EQ(_ull, EQ, unsigned long long)
+LLIST_EQ(_i, EQ, int)
+LLIST_EQ(_ui, EQ, unsigned int)
+LLIST_EQ(_f, EQ, float)
+LLIST_EQ(_d, EQ, double)
+LLIST_EQ(_c, EQ, char)
+LLIST_EQ(_uc, EQ, unsigned char)
+LLIST_EQ(_s, EQ, char*)
+LLIST_EQ(_v, EQ, void*)
+#endif

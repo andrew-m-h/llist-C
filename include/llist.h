@@ -91,4 +91,14 @@
 #include "llist.def"
 #undef LLIST_NUMERICAL
 
+#define LLIST_NUMERICAL(suffix, type) \
+	type maximum ## suffix(llist ## suffix ## _t*) __attribute__((pure));
+#include "llist.def"
+#undef LLIST_NUMERICAL
+
+#define LLIST_EQ(suffix, _, type) \
+	int elem ## suffix(llist ## suffix ## _t*, type) __attribute__((pure));
+#include "llist.def"
+#undef LLIST_EQ
+
 #endif 
