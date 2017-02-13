@@ -37,10 +37,11 @@ LLIST_MACRO(_custom, custom_t)
 #define PRINT_CUSTOM(x, file) fprintf(file, "{%c, %d}", x.c, x.i)
 LLIST_PRINT(_custom, PRINT_CUSTOM, custom_t)
 #undef PRINT_CUSTOM 
+#endif
 
 #ifdef LLIST_EQ
-#define EQ(a,b) (((a).c - (b).c) && ((a).i - (b).i))
+#define EQ(a,b) (((a).c == (b).c) && ((a).i == (b).i))
 LLIST_EQ(_custom, EQ, custom_t)
+#undef EQ
 #endif
 
-#endif

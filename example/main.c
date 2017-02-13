@@ -3,6 +3,7 @@
 
 #include "llist.h"
 #include "custom.h"
+
 #define print print_i
 #define new_llist new_llist_i
 #define reverse reverse_i
@@ -30,6 +31,11 @@ int main(){
     print_custom(clist);
     rev_c = reverse_custom(clist);
     print_custom(rev_c);
+    if (elem_custom(rev_c, c)){
+	    printf("c is in rev_c\n");
+    } else {
+	    printf("elem not working\n");
+    }
     free_llist_custom(clist);
     free_llist_custom(rev_c);
     return 0;

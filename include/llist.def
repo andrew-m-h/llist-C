@@ -79,4 +79,5 @@ LLIST_EQ(_c, EQ, char)
 LLIST_EQ(_uc, EQ, unsigned char)
 LLIST_EQ(_s, EQ, char*)
 LLIST_EQ(_v, EQ, void*)
+#undef EQ
 #endif

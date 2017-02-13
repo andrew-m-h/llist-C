@@ -175,6 +175,7 @@
 			if (eq(tmp->data,  n)){ \
 				return 1; \
 			} \
+			tmp = tmp->next; \
 		} \
 		return 0; \
 	}
